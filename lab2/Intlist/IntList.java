@@ -88,8 +88,8 @@ public class IntList {
             t=t.rest;
         }
         t.rest=B;
-        t.rest.first=B.first;
-        return t;
+
+        return A;
     }
 
     /**
