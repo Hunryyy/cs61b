@@ -1,9 +1,9 @@
 public class Planet{
-	double xxPos;
-	double yyPos;
-	double xxVel;
-	double yyVel;
-	double mass;
+	public double xxPos;
+	public double yyPos;
+	public double xxVel;
+	public double yyVel;
+	public double mass;
 	String imgFileName;
 	public Planet(double xP,double yP,double xV,double yV,double m,String img){
 		xxPos=xP;
