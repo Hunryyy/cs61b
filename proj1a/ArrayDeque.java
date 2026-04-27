@@ -21,11 +21,11 @@ public class ArrayDeque<T>{
         }
         array=newArray;
         nextFirst=newSize - 1;
-        nextLast = newSize;
+        nextLast = size;
     }
     public ArrayDeque(){
         array=(T[]) new Object[8];
-        size=8;
+        size=0;
         nextFirst=4;
         nextLast=5;
     }
@@ -61,6 +61,7 @@ public class ArrayDeque<T>{
             System.out.print(" ");
             curr = plusOne(curr);
         }
+        System.out.println();
     }
     public T removeFirst(){
         if (size == 0){
@@ -70,10 +71,12 @@ public class ArrayDeque<T>{
         T remove=array[first];
         array[first]=null;
 
+        size-=1;
+        nextFirst = first;
         if (array.length >= 16 && size < array.length / 4) {
             resize(array.length/2);
         }
-        return remove;
+       return remove;
     }
     public T removeLast(){
         if (size == 0){
@@ -82,10 +85,12 @@ public class ArrayDeque<T>{
         int last =minusOne(nextLast);
         T remove=array[last];
         array[last]=null;
-
+        nextLast=last;
+        size-=1;
         if (array.length >= 16 && size < array.length / 4) {
             resize(array.length/2);
         }
+
         return remove;
     }
     public T get(int index){

@@ -28,7 +28,7 @@ public class LinkedListDeque<T>{
 	public void addLast(T item){
 		Node last=new Node(item,sentinel.prev,sentinel);
 		sentinel.prev.next=last;
-		sentinel.next=last;
+		sentinel.prev=last;
 		size+=1;
 	}
 	public boolean isEmpty(){
@@ -92,7 +92,7 @@ public class LinkedListDeque<T>{
 			return null;
 		}
 		Node t=sentinel.next;
-		for(int i=1;i<index;i++){
+		for(int i=0;i<index;i++){
 			t=t.next;
 		}
 		return t.item;
@@ -104,7 +104,7 @@ public class LinkedListDeque<T>{
 		return recursiveHelp(sentinel.next,index);
 
 	}
-	public T recursiveHelp(Node t,int index){
+	private T recursiveHelp(Node t,int index){
 
 		if(index==0){
 			return t.item;
